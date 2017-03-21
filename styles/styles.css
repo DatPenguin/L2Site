@@ -1,10 +1,18 @@
-body, article a, p a {
+body, a, p a {
   font-family: 'Verdana';
-  //background-image: url("../images/background.jpg");
-  background-color: black;
+  background-color: #eee;
   background-size: cover;
   background-attachment: fixed;
-  color: #ffffff !important;
+  color: #24292e;
+}
+
+.corps {
+  width: 60%;
+  display: table;
+  margin: auto;
+  background-color: #fbfbfc;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 nav {
@@ -17,7 +25,7 @@ nav ul {
     list-style-type: none;
     padding: 0;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #24292e;
     text-align: center;
     border-radius: 10px;
 }
@@ -28,33 +36,16 @@ nav li {
 
 nav li a {
     display: block;
-    color: white;
     text-align: center;
     padding: 14px 16px;
+    background-color: initial;
     text-decoration: none;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: bold;
 }
 
 nav li a:hover {
     background-color: rgba(255, 255, 255, 0.4);
-}
-
-section {
-  float: left;
-  padding-left: 1%;
-}
-
-aside {
-  float: right;
-  padding-right: 1%;
-}
-
-figure img {
-  border-radius: 20px;
-}
-
-figcaption {
-  text-align: center;
-  font-style: italic;
 }
 
 footer {
@@ -64,33 +55,6 @@ footer {
   bottom: 0;
 }
 
-table, td, th {
-  border: 1px solid white;
-  text-align: center;
-  padding: 5px;
-  border-collapse: collapse;
-}
-
-.liltab td {
-  padding: 3px;
-  min-width: 100%;
-}
-
-.liltab {
-  min-width: 100%;
-}
-
-.rightMenu {
-  border-radius: 10px;
-  margin-right: 10px;
-  list-style: none;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 10px;
-  position: fixed;
-  clear: both;
-  right: 0px;
-}
-
-.rightMenu a {
-  color: #fff;
+footer a {
+  background-color: #fbfbfc;
 }

@@ -9,9 +9,8 @@
 		<meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" />
 	</head>
 	<body>");
-		echo "<div style=\"text-align:center; width: 50%; margin: auto;\">";
-		echo "</div>";
 		include("menu.inc.php");
+		echo "<div class=\"corps\">";
 	}
 ?>
 
