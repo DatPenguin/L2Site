@@ -6,6 +6,16 @@ body, a, p a {
   color: #24292e;
 }
 
+table, th, tr, td {
+	border: 1px solid #24292e;
+	border-collapse: collapse;
+	padding: 10px;
+}
+
+table {
+	margin: 10px;
+}
+
 .corps {
   width: 60%;
   display: table;
@@ -13,6 +23,11 @@ body, a, p a {
   background-color: #fbfbfc;
   padding: 10px;
   border-radius: 10px;
+  box-shadow: 0 0px 19px 3px rgba(0, 0, 0, 0.1);
+}
+
+td.fixed_row, th.fixed_row {
+	width: 20%;
 }
 
 nav {
@@ -40,7 +55,7 @@ nav li a {
     padding: 14px 16px;
     background-color: initial;
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.75);
+    color: #fbfbfc;
     font-weight: bold;
 }
 
@@ -50,6 +65,7 @@ nav li a:hover {
 
 footer {
   top: 100%;
+  margin-top: 20px;
   clear: both;
   font-size: 12px;
   bottom: 0;

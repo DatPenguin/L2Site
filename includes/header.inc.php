@@ -3,7 +3,7 @@
 		printf("<!DOCTYPE html>
 <html lang=\"fr\">
 	<head>
-		<title>" . $titre . "</title>
+		<title>" . "Find My School - " . $titre . "</title>
 		<link rel=\"stylesheet\" type=\"text/css\" href=\"styles/" . $style . ".css\" />
 		<link rel=\"icon\" href=\"images/favicon.png\" />
 		<meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\" />
