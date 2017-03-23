@@ -9,12 +9,6 @@
 			$parsed[$i] = fgetcsv($file, 0, ';');
 		$_SESSION['parsed'] = $parsed;
 		fclose($file);
-
-		foreach ($_SESSION['parsed'] as $key => $row)
-					for ($i = 0; $i < 26; $i++)
-						$tab[$i][$key] = $row[$i];
-
-				array_multisort($tab[17], SORT_ASC, $_SESSION['parsed']);
 	}
 
 	function update_data() {

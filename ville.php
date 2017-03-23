@@ -2,13 +2,13 @@
 	require_once("includes/parser.inc.php");
 	require_once("includes/util.inc.php");
 	include_once("includes/header.inc.php");
-	create_header("Tri par académie");
+	create_header("Tri par ville");
 ?>
-		<h1>Tri par académie</h1>
+		<h1>Tri par ville</h1>
 		<form method="post" action="#">
 			<select name="liste">
-				<option value="tout">[Tout afficher]</option>
 				<option value="Aix-Marseille">Aix-Marseille</option>
+				<option value="Amiens">Amiens</option>
 				<option value="Amiens">Amiens</option>
 				<option value="Besançon">Besançon</option>
 				<option value="Bordeaux">Bordeaux</option>
@@ -37,11 +37,15 @@
 				<option value="Strasbourg">Strasbourg</option>
 				<option value="Toulouse">Toulouse</option>
 				<option value="Versailles">Versailles</option>
+				<option value="tout">[Tout afficher]</option>
 			</select>
 			<input type="submit" name="valider" />
 		</form>
 			<?php
-				find_my_school(17);
+				for ($i = 1; $i < 3659; $i++) {
+					if (isset($_POST['liste']) && ($_POST['liste'] == $_SESSION['parsed'][$i][17] || $_POST['liste'] == "tout"))
+						echo get_tabled_parsed($_SESSION['parsed'][$i]);
+				}
 			?>
 <?php
 	include_once("includes/footer.inc.php");
