@@ -7,43 +7,30 @@
 		<h1>Tri par région</h1>
 		<form method="post" action="#">
 			<select name="liste">
-				<option value="Aix-Marseille">Aix-Marseille</option>
-				<option value="Amiens">Amiens</option>
-				<option value="Amiens">Amiens</option>
-				<option value="Besançon">Besançon</option>
-				<option value="Bordeaux">Bordeaux</option>
-				<option value="Caen">Caen</option>
-				<option value="Clermont-Ferrand">Clermont-Ferrand</option>
-				<option value="Créteil">Créteil</option>
-				<option value="Dijon">Dijon</option>
-				<option value="Grenoble">Grenoble</option>
-				<option value="Guyane">Guyane</option>
-				<option value="La Réunion">La Réunion</option>
-				<option value="Lille">Lille</option>
-				<option value="Limoges">Limoges</option>
-				<option value="Lyon">Lyon</option>
-				<option value="Martinique">Martinique</option>
-				<option value="Montpellier">Montpellier</option>
-				<option value="Nancy-Metz">Nancy-Metz</option>
-				<option value="Nantes">Nantes</option>
-				<option value="Nice">Nice</option>
-				<option value="Orléans-Tours">Orléans-Tours</option>
-				<option value="Lille">Lille</option>
-				<option value="Paris">Paris</option>
-				<option value="Poitiers">Poitiers</option>
-				<option value="Reims">Reims</option>
-				<option value="Rennes">Rennes</option>
-				<option value="Rouen">Rouen</option>
-				<option value="Strasbourg">Strasbourg</option>
-				<option value="Toulouse">Toulouse</option>
-				<option value="Versailles">Versailles</option>
 				<option value="tout">[Tout afficher]</option>
+				<option value="">[Aucune Région]</option>
+				<option value="Auvergne-Rhône-Alpes">Auvergne-Rhône-Alpes</option>
+				<option value="Bourgogne-Franche-Comté">Bourgogne-Franche-Comté</option>
+				<option value="Bretagne">Bretagne</option>
+				<option value="Centre-Val de Loire">Centre-Val de Loire</option>
+				<option value="Grand Est">Grand Est</option>
+				<option value="Guadeloupe">Guadeloupe</option>
+				<option value="Guyane">Guyane</option>
+				<option value="Hauts-de-France">Hauts-de-France</option>
+				<option value="Île-de-France">Île-de-France</option>
+				<option value="La Réunion">La Réunion</option>
+				<option value="Martinique">Martinique</option>
+				<option value="Normandie">Normandie</option>
+				<option value="Nouvelle Aquitaine">Nouvelle Aquitaine</option>
+				<option value="Occitanie">Occitanie</option>
+				<option value="Pays de la Loire">Pays de la Loire</option>
+				<option value="Provence-Alpes-Côte d'Azur">Provence-Alpes-Côte d'Azur</option>
 			</select>
 			<input type="submit" name="valider" />
 		</form>
-			<?php
-				find_my_school(18);
-			?>
+		<?php
+			find_my_school(18);
+		?>
 <?php
 	include_once("includes/footer.inc.php");
 ?>

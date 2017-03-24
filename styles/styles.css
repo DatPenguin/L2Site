@@ -1,9 +1,21 @@
+@import url("fonts.css");
+
 body, a, p a {
-  font-family: 'Verdana';
+  font-family: 'Open Sans', sans-serif;
   background-color: #eee;
   background-size: cover;
   background-attachment: fixed;
   color: #24292e;
+}
+
+.banner {
+	display: block;
+	margin: 1% auto 1.5%;
+}
+
+h1, h2, h3 {
+	font-family: 'Raleway', sans-serif;
+	margin-top: 0;
 }
 
 table, th, tr, td {
@@ -21,7 +33,7 @@ table {
   display: table;
   margin: auto;
   background-color: #fbfbfc;
-  padding: 10px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0px 19px 3px rgba(0, 0, 0, 0.1);
 }
@@ -31,9 +43,9 @@ td.fixed_row, th.fixed_row {
 }
 
 nav {
-  width: 45%;
-  margin: auto;
-  margin-bottom: 2%;
+  width: 60%;
+  margin: 0 auto 2% auto;
+  top: 0;
 }
 
 nav ul {
@@ -56,7 +68,8 @@ nav li a {
     background-color: initial;
     text-decoration: none;
     color: #fbfbfc;
-    font-weight: bold;
+    //font-weight: bold;
+	font-family: 'Raleway', sans-serif;
 }
 
 nav li a:hover {
