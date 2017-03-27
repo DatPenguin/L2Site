@@ -12,7 +12,6 @@
 				<option value="tout">[Tout afficher]</option>
 				<option value="Aix-Marseille">Aix-Marseille</option>
 				<option value="Amiens">Amiens</option>
-				<option value="Amiens">Amiens</option>
 				<option value="Besançon">Besançon</option>
 				<option value="Bordeaux">Bordeaux</option>
 				<option value="Caen">Caen</option>
