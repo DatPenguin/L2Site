@@ -1,7 +1,7 @@
 <?php
 	@session_start();
 	function get_data() {
-		$file = fopen('data/etablissements_denseignement_superieur.csv', 'r+');
+		$file = fopen('data/etablissements_denseignement_superieur.csv', 'r');
 		if (!$file) {
 			print_error_page();
 			exit(1);
@@ -24,7 +24,7 @@
 	}
 
 	function update_data() {
-		$file = fopen('data/etablissements_denseignement_superieur.csv', 'r+');
+		$file = fopen('data/etablissements_denseignement_superieur.csv', 'r');
 		if (!$file) {
 			print_error_page();
 			exit(1);
