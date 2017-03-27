@@ -16,6 +16,23 @@ label {
   margin-right: 10px;
 }
 
+.pagenumbers a {
+  background-color: initial;
+  padding: 10px;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.pagenumbers a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.pagenumbers {
+  text-align: center;
+  margin: 20px;
+}
+
 .avance td, .avance tr, .avance {
   border: none;
   padding: initial;
