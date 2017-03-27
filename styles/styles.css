@@ -8,6 +8,20 @@ body, a, p a {
   color: #24292e;
 }
 
+form select {
+  width: 200px;
+}
+
+label {
+  margin-right: 10px;
+}
+
+.avance td, .avance tr, .avance {
+  border: none;
+  padding: initial;
+  margin: initial;
+}
+
 .banner {
 	display: block;
 	margin: 1% auto 1.5%;
@@ -68,8 +82,7 @@ nav li a {
     background-color: initial;
     text-decoration: none;
     color: #fbfbfc;
-    //font-weight: bold;
-	font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 nav li a:hover {

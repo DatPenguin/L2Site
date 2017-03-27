@@ -1,4 +1,5 @@
 <?php
+	@session_start();
 	function get_hits() {
 		$out = "";
 		if (file_exists("files/hits"))
@@ -49,6 +50,21 @@
 
 		for ($i = 1; $i < 3659; $i++) {
 			if (isset($_POST['liste']) && ($_POST['liste'] == $_SESSION['parsed'][$i][$n] || $_POST['liste'] == "tout"))
+				echo get_tabled_parsed($_SESSION['parsed'][$i]);
+		}
+	}
+
+	function find_my_school_advance() {
+		if (!isset($_POST['academie']))
+			return;
+		foreach ($_SESSION['parsed'] as $key => $row)
+						for ($i = 0; $i < 26; $i++)
+							$tab[$i][$key] = $row[$i];
+
+		array_multisort($tab[17], SORT_ASC, $_SESSION['parsed']);
+
+		for ($i = 1; $i < 3659; $i++) {
+			if ((($_POST['academie'] == "tout") || ($_POST['academie'] == $_SESSION['parsed'][$i][17])) && (($_POST['region'] == "tout") || ($_POST['region'] == $_SESSION['parsed'][$i][18])) && (($_POST['ville'] == "tout") || ($_POST['ville'] == $_SESSION['parsed'][$i][11])) && (($_POST['type'] == "tout") || ($_POST['type'] == $_SESSION['parsed'][$i][2])))
 				echo get_tabled_parsed($_SESSION['parsed'][$i]);
 		}
 	}
