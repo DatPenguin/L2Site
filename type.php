@@ -1,6 +1,6 @@
 <?php
 	require_once("includes/parser.inc.php");
-	require_once("includes/util.inc.php");
+	require_once("includes/findmyschool.inc.php");
 	include_once("includes/header.inc.php");
 	create_header("Tri par type");
 ?>
