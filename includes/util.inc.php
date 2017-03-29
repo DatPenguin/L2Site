@@ -1,5 +1,4 @@
 <?php
-	@session_start();
 	function get_hits() {
 		$out = "";
 		if (file_exists("files/hits"))
@@ -23,6 +22,7 @@
 	}
 
 	function get_tabled_parsed($parsed) {
+		@session_start();
 		$out = "";
 		$out .= "\n<table>\n\t<tr class=\"fixed_row\">\n";
 		for ($i = 0; $i < 26; $i++)
@@ -42,12 +42,17 @@
 	}
 
 	function find_my_school($n = 17, $page = 0) {
+		@session_start();
+		$reset = false;
 		if (isset($_GET['page']))
 			$page = $_GET['page'];
 
 
-		if (isset($_POST['liste']))
+		if (isset($_POST['liste'])) {
 			$_SESSION['liste'] = $_POST['liste'];
+			$page = 0;
+			$reset = true;
+		}
 
 		if ($page == 49.3) {
 			echo "<img src=\"images/manu.jpg\" style=\"display: block; margin: auto;\" alt=\"manu\" />";
@@ -66,27 +71,21 @@
 				$toprint[] = get_tabled_parsed($_SESSION['parsed'][$i]);
 		}
 
-		echo "<div class=\"pagenumbers\">";
-		if (count($toprint) <= 10) {
-			for ($i = 0; $i < count($toprint) / 10; $i++)
-				echo "<a href=\"?page=" . $i . "\">" . $i . "</a>";
-		}
-		else {
-			if ($page > 0)
-					echo "<a href=\"?page=" . 0 . "\">" . "Première page" . "</a>";
-			for ($i = $page - 3; $i < $page + 4; $i++)
-				if ($i >= 0 && $i <= (floor(count($toprint) / 10)))
-					echo "<a href=\"?page=" . $i . "\">" . $i . "</a>";
-				if ($page != (floor(count($toprint) / 10)))
-					echo "<a href=\"?page=" . (floor(count($toprint) / 10)) . "\">" . "Dernière page" . "</a>";
-		}
-		echo "</div>";
+		print_pages($toprint, $reset);
 
 		for ($i = 0; $i < 10; $i++) {
 			if (isset($toprint[$i + $page * 10]))
 				echo $toprint[$i + $page * 10];
 		}
+		print_pages($toprint, $reset);
+	}
 
+	function print_pages($toprint, $reset) {
+		if (isset($_GET['page']) && !$reset){
+			$page = $_GET['page'];
+		}
+		else
+			$page = 0;
 		echo "<div class=\"pagenumbers\">";
 		if (count($toprint) <= 10) {
 			for ($i = 0; $i < count($toprint) / 10; $i++)
@@ -97,14 +96,16 @@
 					echo "<a href=\"?page=" . 0 . "\">" . "Première page" . "</a>";
 			for ($i = $page - 3; $i < $page + 4; $i++)
 				if ($i >= 0 && $i <= (floor(count($toprint) / 10)))
-					echo "<a href=\"?page=" . $i . "\">" . $i . "</a>";
+					echo "<a href=\"?page=" . $i . "\">" . ($i + 1) . "</a>";
 				if ($page != (floor(count($toprint) / 10)))
 					echo "<a href=\"?page=" . (floor(count($toprint) / 10)) . "\">" . "Dernière page" . "</a>";
 		}
 		echo "</div>";
+
 	}
 
 	function find_my_school_advance() {
+		@session_start();
 		if (!isset($_POST['academie']))
 			return;
 		foreach ($_SESSION['parsed'] as $key => $row)
