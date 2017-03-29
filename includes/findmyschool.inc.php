@@ -26,7 +26,7 @@
 		array_multisort($tab[$n], SORT_ASC, $_SESSION['parsed']);
 
 		for ($i = 1; $i < 3659; $i++) {
-			if (isset($_SESSION['liste']) && ($_SESSION['liste'] == $_SESSION['parsed'][$i][$n] || $_SESSION['liste'] == "tout"))
+			if ((isset($_SESSION['liste']) && ($_SESSION['liste'] == $_SESSION['parsed'][$i][$n] || $_SESSION['liste'] == "tout")) && (isset($_GET['page']) || isset($_POST['liste'])))
 				$toprint[] = get_tabled_parsed($_SESSION['parsed'][$i]);
 		}
 
