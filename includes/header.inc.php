@@ -1,4 +1,10 @@
 <?php
+	/**
+	*	Fonction créant un header avec le titre et le style sélectionnés
+	*	Arguments:
+	*	$titre: <title> de la page
+	*	$style: feuille de style sélectionnée ("styles" par défaut)
+	*/
 	function create_header($titre, $style = "styles") {
 		printf("<!DOCTYPE html>
 <html lang=\"fr\">
