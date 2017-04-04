@@ -55,4 +55,20 @@
 		}
 		echo "</div>";
 	}
+
+	/**
+	 * Va creer un formulaire dynamiquement en fonction de l'arguments choisit
+	 * @param array $tab
+	 * @param int $colonne
+	 */
+	function printList($tab, $colonne){
+		print("<form method=\"post\" action=\"#\">");
+		print("\t <select name=\"liste\">");
+		print("\t\t <option value=\"tout\">[Tout afficher]</option>");
+		foreach($tab as $key => $row){
+			print("<option value=\" ". $row[$colonne] . "\">" . $row[$colonne] . "</option>");
+		}
+		print("</select>");
+		print("</form>");
+	}
 ?>
