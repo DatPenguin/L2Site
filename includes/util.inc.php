@@ -58,17 +58,29 @@
 
 	/**
 	 * Va creer un formulaire dynamiquement en fonction de l'arguments choisit
+	 * et s'assurera de ne pas ajouter deux éléments similaire
 	 * @param array $tab
 	 * @param int $colonne
 	 */
-	function printList($tab, $colonne){
+	function printList2($tab, $colonne){
+		$sousTab = array();
+		$index = count($sousTab) ; 		// Normalement sera toujours initialisé à 0 mais peut etre utile pour réaliser des tests
+		
+		foreach($tab as $key => $row){	// Passera tout les éléments souhaité du tableau 2d à un sous tableau tout en ne prennant qu'une seule fois chaque élément
+			if(! in_array($row[$colonne], $sousTab))
+				$sousTab[$index] = $row[$colonne];	
+			
+			$index++;
+		}
+		
 		print("<form method=\"post\" action=\"#\">");
 		print("\t <select name=\"liste\">");
 		print("\t\t <option value=\"tout\">[Tout afficher]</option>");
-		foreach($tab as $key => $row){
-			print("<option value=\" ". $row[$colonne] . "\">" . $row[$colonne] . "</option>");
+		foreach($sousTab as $value){
+			print("<option value=\" ". $value . "\">" . $value . "</option>");
 		}
 		print("</select>");
 		print("</form>");
+		
 	}
 ?>
