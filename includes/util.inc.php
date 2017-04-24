@@ -62,25 +62,40 @@
 	 * @param array $tab
 	 * @param int $colonne
 	 */
-	function printList2($tab, $colonne){
-		$sousTab = array();
+	function print_list2($tab, $colonnes){
+		@session_start();
+		$b = true;
+		/*$sousTab = array();
 		$index = count($sousTab) ; 		// Normalement sera toujours initialisé à 0 mais peut etre utile pour réaliser des tests
-		
-		foreach($tab as $key => $row){	// Passera tout les éléments souhaité du tableau 2d à un sous tableau tout en ne prennant qu'une seule fois chaque élément
+
+		/*foreach($tab as $key => $row){	// Passera tout les éléments souhaité du tableau 2d à un sous tableau tout en ne prennant qu'une seule fois chaque élément
 			if(! in_array($row[$colonne], $sousTab))
 				$sousTab[$index] = $row[$colonne];	
 			
 			$index++;
 		}
+		*/
+		for ($a = 0; $a < 3659; $a++) {
+			$taba[] = $_SESSION['parsed'][$a][17];
+		}
+
+
+		$taba = array_unique($taba);
 		
 		print("<form method=\"post\" action=\"#\">");
 		print("\t <select name=\"liste\">");
 		print("\t\t <option value=\"tout\">[Tout afficher]</option>");
-		foreach($sousTab as $value){
+		/*foreach($sousTab as $value){
 			print("<option value=\" ". $value . "\">" . $value . "</option>");
+		}*/
+		foreach($taba as $valua) {
+			if ($b)
+				$b = false;
+			else
+				print("<option value=\" ". $valua . "\">" . $valua . "</option>");
 		}
 		print("</select>");
+		print("<input type=\"submit\" name=\"valider\" />");
 		print("</form>");
-		
 	}
 ?>
