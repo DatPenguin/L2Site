@@ -6,7 +6,7 @@
 ?>
 		<h1>Tri par ville</h1>
 		<?php
-			print_list2($_SESSION['parsed'], 11);
+			include("includes/standard_form.inc.php");
 			find_my_school(11);
 		?>
 <?php
