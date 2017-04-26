@@ -36,6 +36,7 @@
 
 		for ($i = 1; $i < count($_SESSION['parsed']); $i++)	// On parcourt tout le tableau parsé et on met en page chaque ligne
 			if ((isset($_SESSION['liste']) && ($_SESSION['liste'] == $_SESSION['parsed'][$i][$n] || $_SESSION['liste'] == "tout")) && (isset($_GET['page']) || isset($_POST['liste'])))
+			//if ((isset($_SESSION['liste']) &&  ((strpos($_SESSION['parsed'][$i][$n], ($_SESSION['liste'] ) !== false)) || $_SESSION['liste'] == "tout")) && (isset($_GET['page']) || isset($_POST['liste'])))
 				$toprint[] = get_tabled_parsed($_SESSION['parsed'][$i]);
 
 		print_pages($toprint, $reset);				// On affiche une première fois les pages, avant les résultats

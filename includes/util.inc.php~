@@ -73,6 +73,9 @@
 	
 		$taba = array_unique($taba);
 		
+		//fonction de test
+		print_r($taba);
+		print("<p> nb élément : " . count($taba) . "</p>");
 		
 		$tabSecondaire = array();
 		$index = 0;
@@ -80,11 +83,11 @@
 			$tabSecondaire[$index] = $valua;
 			$index++;
 		}
-
+		print_r($tabSecondaire);
 		
 		sort($tabSecondaire);
 		
-
+		print_r($tabSecondaire);
 		
 	
 		print("<form method=\"post\" action=\"#\">");
