@@ -11,6 +11,11 @@
 			$tab = array();
 			$tab = fillStringTab(17);
 			print_r($tab);
+			
+			for($index = 0; $index < count($tab); $index++) {
+				print("\n");
+				print("\n" . $tab[$index] . " : " . countElementsFromData($tab[$index], 17));
+			}
 
 		?>
 <?php

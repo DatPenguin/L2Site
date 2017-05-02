@@ -159,10 +159,16 @@
 		for ($a = 0; $a < count($_SESSION['parsed']); $a++)
 			$taba[] = $_SESSION['parsed'][$a][$colonnes];
 			
+		//print_r($taba);
+			
 		for($index = 0; $index < count($taba) ; $index++) {
-			if(strpos($taba[$index],$stringToSearch) == true)
-				$nbOccurence++;
+			if(strpos($taba[$index],$stringToSearch) !== false){
+				$nbOccurence += 1;
+				//print("\nEST DANS LE TABLEAU\n");
+			}
+			else {}
 		}
+
 		return $nbOccurence;
 	}
 ?>
