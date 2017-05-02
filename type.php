@@ -1,12 +1,14 @@
 <?php
 	require_once("includes/parser.inc.php");
+	require_once("includes/util.inc.php");
 	require_once("includes/findmyschool.inc.php");
 	include_once("includes/header.inc.php");
 	create_header("Tri par type");
+	@session_start();
 ?>
 		<h1>Tri par type</h1>
 		<?php
-			include("includes/standard_form.inc.php");
+			print_list2($_SESSION['parsed'], 2);
 			find_my_school(2);
 		?>
 <?php
