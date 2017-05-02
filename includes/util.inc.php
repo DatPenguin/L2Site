@@ -65,14 +65,10 @@
 	function print_list2($tab, $colonnes){
 		@session_start();
 
-
-		for ($a = 0; $a < count($_SESSION['parsed']); $a++) {
+		for ($a = 0; $a < count($_SESSION['parsed']); $a++)
 			$taba[] = $_SESSION['parsed'][$a][$colonnes];
-		}
 
-	
 		$taba = array_unique($taba);
-		
 		
 		$tabSecondaire = array();
 		$index = 0;
@@ -80,23 +76,49 @@
 			$tabSecondaire[$index] = $valua;
 			$index++;
 		}
-
-		
+	
 		sort($tabSecondaire);
-		
-
-		
 	
 		print("<form method=\"post\" action=\"#\">");
 		print("\t <select name=\"liste\">");
 		print("\t\t <option value=\"tout\">[Tout afficher]</option>");
 
-		
-		for($i = 1; $i < count($tabSecondaire); $i++){
+		for($i = 1; $i < count($tabSecondaire); $i++)
 			print("<option value=\"". $tabSecondaire[$i] . "\">" . $tabSecondaire[$i] . "</option>\n");
-		}
+
 		print("</select>");
 		print("<input type=\"submit\" name=\"valider\" />");
 		print("</form>");
+	}
+
+	/**
+	 * Va creer un formulaire dynamiquement en fonction de l'arguments choisit
+	 * et s'assurera de ne pas ajouter deux éléments similaire
+	 * @param array $tab
+	 * @param int $colonne
+	 */
+	function print_list3($tab, $colonnes, $name){
+		@session_start();
+
+		for ($a = 0; $a < count($_SESSION['parsed']); $a++)
+			$taba[] = $_SESSION['parsed'][$a][$colonnes];
+
+		$taba = array_unique($taba);
+		
+		$tabSecondaire = array();
+		$index = 0;
+		foreach($taba as $valua) {
+			$tabSecondaire[$index] = $valua;
+			$index++;
+		}
+	
+		sort($tabSecondaire);
+		print("\t <select name=\"" . $name . "\">");
+		print("\t\t <option value=\"tout\">[Tout afficher]</option>");
+
+		for($i = 1; $i < count($tabSecondaire); $i++)
+			print("<option value=\"". $tabSecondaire[$i] . "\">" . $tabSecondaire[$i] . "</option>\n");
+
+		print("</select>");
 	}
 ?>
