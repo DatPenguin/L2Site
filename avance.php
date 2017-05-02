@@ -3,6 +3,7 @@
 	require_once("includes/findmyschool.inc.php");
 	require_once("includes/parser.inc.php");
 	include_once("includes/header.inc.php");
+	avance_cookie();
 	create_header("Index");
 ?>
 		<h1>Recherche avancée</h1>
