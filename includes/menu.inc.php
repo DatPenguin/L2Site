@@ -6,5 +6,6 @@
 				<li><a href="ville.php">Par Ville</a></li>
 				<li><a href="type.php">Par Type</a></li>
 				<li><a href="avance.php">Recherche avancée</a></li>
+				<li><a href="graph.php">Graphes</a></li>
 			</ul>
 		</nav>
