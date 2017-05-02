@@ -3,24 +3,28 @@
 	* Fonction permettant de retourner l'affichage d'un établissement sous forme de tableau. 
 	* Arg : informations sur 1 établissement sous forme de tableau
 	*/
-	function get_tabled_parsed($parsed) {
+	function get_tabled_parsed($parsed, $headers = false) {
 		@session_start();
-		$out = "";
-		$out .= "\n<table>\n\t<tr class=\"fixed_row\">\n";
-		for ($i = 0; $i < 26; $i++)
-			if ($i == 0 || $i == 2 || $i == 3 || $i == 5 || $i == 9 || $i == 11 || $i == 14 || $i == 16 || $i == 17 || $i == 18)			// On n'affiche que les colonnes qui nous intéressent
-				$out .= "\n\t\t<th>" . ucfirst(str_replace("code", "", str_replace("\"", "", $_SESSION['parsed_headers'][$i]))) . "</th>";
-		$out .= "</tr>";
+		$out = "\n<table style=\"table-layout: fixed;\">\n\t";
 
 		$out .= "<tr>";
 		for ($i = 0; $i < 26; $i++) {
 			if ($i == 0 || $i == 2 || $i == 3 || $i == 5 || $i == 9 || $i == 11 || $i == 14 || $i == 16 || $i == 17 || $i == 18)
-				$out .= "<td class=\"fixed_row\">" . $parsed[$i] . "</td>";
+				$out .= "<td class=\"fixed_row\" colspan=\"2\">" . $parsed[$i] . "</td>";
 		}
 		$out .= "</tr>";
 
 		$out .= "\n</table>";
 		return $out;
+	}
+
+	function print_headers() {
+			$out = "<table style=\"width:100%;\"><tr class=\"fixed_row\">\n";
+			for ($i = 0; $i < 26; $i++)
+				if ($i == 0 || $i == 2 || $i == 3 || $i == 5 || $i == 9 || $i == 11 || $i == 14 || $i == 16 || $i == 17 || $i == 18)			// On n'affiche que les colonnes qui nous intéressent
+					$out .= "\n\t\t<th colspan=\"2\" rowspan=\"2\">" . ucfirst(str_replace("code", "", str_replace("\"", "", $_SESSION['parsed_headers'][$i]))) . "</th>";
+			$out .= "</tr></table>";
+			echo $out;
 	}
 
 	/**

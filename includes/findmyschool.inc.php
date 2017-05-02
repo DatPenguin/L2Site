@@ -36,13 +36,15 @@
 
 		for ($i = 1; $i < count($_SESSION['parsed']); $i++)	// On parcourt tout le tableau parsé et on met en page chaque ligne
 			if ((isset($_SESSION['liste']) && ($_SESSION['liste'] == $_SESSION['parsed'][$i][$n] || $_SESSION['liste'] == "tout")) && (isset($_GET['page']) || isset($_POST['liste'])))
-				$toprint[] = get_tabled_parsed($_SESSION['parsed'][$i]);
+					$toprint[] = get_tabled_parsed($_SESSION['parsed'][$i]);
 
 		print_pages($toprint, $reset);				// On affiche une première fois les pages, avant les résultats
 
+				print_headers();
 		for ($i = 0; $i < 10; $i++)					// On affiche tous les résultats de la page actuelle
-			if (isset($toprint[$i + $page * 10]))
+			if (isset($toprint[$i + $page * 10])) {
 				echo $toprint[$i + $page * 10];
+			}
 
 		print_pages($toprint, $reset);				// On affiche une seconde fois les pages, après les résultats
 	}
