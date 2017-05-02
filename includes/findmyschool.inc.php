@@ -40,7 +40,8 @@
 
 		print_pages($toprint, $reset);				// On affiche une première fois les pages, avant les résultats
 
-				print_headers();
+		if ($reset || isset($_GET['page']))
+			print_headers();
 		for ($i = 0; $i < 10; $i++)					// On affiche tous les résultats de la page actuelle
 			if (isset($toprint[$i + $page * 10])) {
 				echo $toprint[$i + $page * 10];
