@@ -18,6 +18,9 @@
 		return $out;
 	}
 
+	/**
+	*	Fonction affichant les en-têtes des listes
+	*/
 	function print_headers() {
 			$out = "<table style=\"width:100%;\"><tr class=\"fixed_row\">\n";
 			for ($i = 0; $i < 26; $i++)

@@ -1,9 +1,15 @@
 <?php
+	if (isset($_POST['academie'])) {
+			setcookie("findmyschoolnom", $_POST['nom'], time() + 3600 * 24 * 365);
+			setcookie("findmyschoolacademie", $_POST['academie'], time() + 3600 * 24 * 365);
+			setcookie("findmyschoolregion", $_POST['region'], time() + 3600 * 24 * 365);
+			setcookie("findmyschoolville", $_POST['ville'], time() + 3600 * 24 * 365);
+			setcookie("findmyschooltype", $_POST['type'], time() + 3600 * 24 * 365);
+		}
 	require_once("includes/util.inc.php");
 	require_once("includes/findmyschool.inc.php");
 	require_once("includes/parser.inc.php");
 	include_once("includes/header.inc.php");
-	avance_cookie();
 	create_header("Index");
 ?>
 		<h1>Recherche avancée</h1>

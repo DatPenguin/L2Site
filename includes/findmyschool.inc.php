@@ -50,28 +50,34 @@
 		print_pages($toprint, $reset);				// On affiche une seconde fois les pages, après les résultats
 	}
 
+	/**
+	*	Fonction de recherche avancée
+	*/
 	function find_my_school_advance() {
 		@session_start();
 
-		$type = "non";
+		$type = "non";		// Initialisation par défaut
 
-		if (isset($_COOKIE['findmyschoolacademie']))
+		if (isset($_COOKIE['findmyschoolacademie']))	// Si le cookie est défini, on set $type sur "cookie"
 			$type = "cookie";
-		if (isset($_POST['academie']))
+		if (isset($_POST['academie']))					// Idem avec le post, mais celui-ci est prioritaire sur le cookie
 			$type = "post";
 
-		if ($type == "non")
+		if ($type == "non")								// Si $type a encore sa valeur par défaut, on return car on ne doit rien afficher
 			return;
 
-		foreach ($_SESSION['parsed'] as $key => $row)
+		foreach ($_SESSION['parsed'] as $key => $row)	// Idem que fonction précédente
 						for ($i = 0; $i < 26; $i++)
 							$tab[$i][$key] = $row[$i];
 
 		array_multisort($tab[17], SORT_ASC, $_SESSION['parsed']);
 
+
+		// On différencie ici le tri selon cookie et selon post
+
 		if ($type == "post") {
 			for ($i = 1; $i < 3659; $i++) {
-				if (((isset($_POST['nom'])) && $_POST['nom'] != "") && 
+				if (((isset($_POST['nom'])) && $_POST['nom'] != "") && 	// On n'affiche un établissement que s'il correspond à tous les critères spécifiés par l'utilisateur
 					(strpos($_SESSION['parsed'][$i][3], $_POST['nom']) !== false) && 
 					(($_POST['academie'] == "tout") || ($_POST['academie'] == $_SESSION['parsed'][$i][17])) && 
 					(($_POST['region'] == "tout") || ($_POST['region'] == $_SESSION['parsed'][$i][18])) && 
@@ -104,16 +110,6 @@
 					echo get_tabled_parsed($_SESSION['parsed'][$i]);
 				}
 			}
-		}
-	}
-
-	function avance_cookie() {
-		if (isset($_POST['academie'])) {
-			setcookie("findmyschoolnom", $_POST['nom'], time() + 3600 * 24 * 365);
-			setcookie("findmyschoolacademie", $_POST['academie'], time() + 3600 * 24 * 365);
-			setcookie("findmyschoolregion", $_POST['region'], time() + 3600 * 24 * 365);
-			setcookie("findmyschoolville", $_POST['ville'], time() + 3600 * 24 * 365);
-			setcookie("findmyschooltype", $_POST['type'], time() + 3600 * 24 * 365);
 		}
 	}
 ?>
