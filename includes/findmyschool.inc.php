@@ -47,9 +47,9 @@
 		print_pages($toprint, $reset);				// On affiche une seconde fois les pages, après les résultats
 	}
 
-// A REFAIRE \\
 	function find_my_school_advance() {
 		@session_start();
+
 		if (!isset($_POST['academie']))
 			return;
 		foreach ($_SESSION['parsed'] as $key => $row)
@@ -59,8 +59,20 @@
 		array_multisort($tab[17], SORT_ASC, $_SESSION['parsed']);
 
 		for ($i = 1; $i < 3659; $i++) {
-			if ((($_POST['academie'] == "tout") || ($_POST['academie'] == $_SESSION['parsed'][$i][17])) && (($_POST['region'] == "tout") || ($_POST['region'] == $_SESSION['parsed'][$i][18])) && (($_POST['ville'] == "tout") || ($_POST['ville'] == $_SESSION['parsed'][$i][11])) && (($_POST['type'] == "tout") || ($_POST['type'] == $_SESSION['parsed'][$i][2])))
+			if (((isset($_POST['nom'])) && $_POST['nom'] != "") && 
+				(strpos($_SESSION['parsed'][$i][3], $_POST['nom']) !== false) && 
+				(($_POST['academie'] == "tout") || ($_POST['academie'] == $_SESSION['parsed'][$i][17])) && 
+				(($_POST['region'] == "tout") || ($_POST['region'] == $_SESSION['parsed'][$i][18])) && 
+				(($_POST['ville'] == "tout") || ($_POST['ville'] == $_SESSION['parsed'][$i][11])) && 
+				(($_POST['type'] == "tout") || ($_POST['type'] == $_SESSION['parsed'][$i][2])))
 				echo get_tabled_parsed($_SESSION['parsed'][$i]);
+			else if (isset($_POST['nom']) && $_POST['nom'] == "") {
+				if ((($_POST['academie'] == "tout") || ($_POST['academie'] == $_SESSION['parsed'][$i][17])) && 
+				(($_POST['region'] == "tout") || ($_POST['region'] == $_SESSION['parsed'][$i][18])) && 
+				(($_POST['ville'] == "tout") || ($_POST['ville'] == $_SESSION['parsed'][$i][11])) && 
+				(($_POST['type'] == "tout") || ($_POST['type'] == $_SESSION['parsed'][$i][2])))
+				echo get_tabled_parsed($_SESSION['parsed'][$i]);
+			}
 		}
 	}
 ?>

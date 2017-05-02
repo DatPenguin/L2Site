@@ -11,6 +11,14 @@
 			<table class="avance">
 				<tr>
 					<td>
+						<label for="nom">Nom</label>
+					</td>
+					<td>
+						<input type="text" name="nom" />
+					</td>
+				</tr>
+				<tr>
+					<td>
 						<label for="academie">Académie</label>
 					</td>
 					<td>
