@@ -50,7 +50,6 @@ h1, h2, h3 {
 }
 
 table, th, tr, td {
-	//border: 1px solid #24292e;
 	border-collapse: collapse;
 	padding: 10px;
 }
