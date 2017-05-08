@@ -63,8 +63,8 @@
 	}
 
 	/**
-	 * Va creer un formulaire dynamiquement en fonction de l'arguments choisit
-	 * et s'assurera de ne pas ajouter deux éléments similaire
+	 * Va creer un formulaire dynamiquement en fonction de l'argument choisit
+	 * et s'assurera de ne pas ajouter deux éléments similaires
 	 * @param array $tab
 	 * @param int $colonne
 	 */
@@ -85,20 +85,20 @@
 		sort($tabSecondaire);
 	
 		print("<form method=\"post\" action=\"#\">");
-		print("\t <select name=\"liste\">");
-		print("\t\t <option value=\"tout\">[Tout afficher]</option>");
+		print("\n\t\t<select name=\"liste\">");
+		print("\n\t\t\t<option value=\"tout\">[Tout afficher]</option>\n");
 
 		for($i = 1; $i < count($tabSecondaire); $i++)
-			print("<option value=\"". $tabSecondaire[$i] . "\">" . $tabSecondaire[$i] . "</option>\n");
+			print("\t\t\t<option value=\"". $tabSecondaire[$i] . "\">" . $tabSecondaire[$i] . "</option>\n");
 
-		print("</select>");
-		print("<input type=\"submit\" name=\"valider\" />");
-		print("</form>");
+		print("\t\t</select>\n");
+		print("\t\t<input type=\"submit\" name=\"valider\" />\n");
+		print("\t</form>");
 	}
 
 	/**
-	 * Va creer un formulaire dynamiquement en fonction de l'arguments choisit
-	 * et s'assurera de ne pas ajouter deux éléments similaire
+	 * Va creer un tableau déroulant dynamiquement en fonction de l'argument choisit
+	 * et s'assurera de ne pas ajouter deux éléments similaires
 	 * @param array $tab
 	 * @param int $colonne
 	 */
