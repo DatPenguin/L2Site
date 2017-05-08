@@ -33,6 +33,4 @@
 		echo "\t\t\t<h1>Erreur</h1>\n\t\t\t<p>Impossible d'ouvrir le fichier de données, veuillez vérifier qu'il est présent et non ouvert par un autre programme.</p>\n";
 		include_once("includes/footer.inc.php");
 	}
-
-	@get_data(); // On démarre systématiquement le parsing à l'inclusion du fichier
 ?>

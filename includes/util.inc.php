@@ -4,7 +4,6 @@
 	* Arg : informations sur 1 établissement sous forme de tableau
 	*/
 	function get_tabled_parsed($parsed, $headers = false) {
-		@session_start();
 		$out = "\n<table style=\"table-layout: fixed;\">\n\t";
 
 		$out .= "<tr>";
@@ -70,8 +69,6 @@
 	 * @param int $colonne
 	 */
 	function print_list2($tab, $colonnes){
-		@session_start();
-
 		for ($a = 0; $a < count($_SESSION['parsed']); $a++)
 			$taba[] = $_SESSION['parsed'][$a][$colonnes];
 
@@ -106,8 +103,6 @@
 	 * @param int $colonne
 	 */
 	function print_list3($tab, $colonnes, $name){
-		@session_start();
-
 		for ($a = 0; $a < count($_SESSION['parsed']); $a++)
 			$taba[] = $_SESSION['parsed'][$a][$colonnes];
 
@@ -135,14 +130,13 @@
 	 * @param int $colonne : définis sur quel colonnes du csv on va receuillir les données
 	 */
 	function fillStringTab($colonnes){
-		@session_start();
-
 		for ($a = 0; $a < count($_SESSION['parsed']); $a++)
 			$taba[] = $_SESSION['parsed'][$a][$colonnes];
 
 		$taba = array_unique($taba);		
 		$tabSecondaire = array();
 		$index = 0;
+		
 		// On est obligé de faire ça pour avoir une réindexation correcte
 		foreach($taba as $valua) {
 			$tabSecondaire[$index] = $valua;
@@ -161,21 +155,13 @@
 	 * @param string $stringToSearch : Quelle chaines on recherche dans le tableau
 	 */
 	function countElementsFromData($stringToSearch, $colonnes) {
-		@session_start();
 		$nbOccurence = 0;
 		for ($a = 0; $a < count($_SESSION['parsed']); $a++)
 			$taba[] = $_SESSION['parsed'][$a][$colonnes];
 			
-		//print_r($taba);
-			
-		for($index = 0; $index < count($taba) ; $index++) {
-			if(strpos($taba[$index],$stringToSearch) !== false){
+		for($index = 0; $index < count($taba) ; $index++)
+			if(strpos($taba[$index],$stringToSearch) !== false)
 				$nbOccurence += 1;
-				//print("\nEST DANS LE TABLEAU\n");
-			}
-			else {}
-		}
-
 		return $nbOccurence;
 	}
 ?>

@@ -8,8 +8,6 @@
 	*	$page: page à afficher
 	*/
 	function find_my_school($n = 17, $page = 0) {
-		@session_start();							// Démarrage d'une session pour utiliser $_SESSION['parsed'] et $_SESSION['liste']
-
 		if (isset($_GET['page']))					// Si une page est spécifiée dans l'URL ($_GET), alors on affichera celle-ci
 			$page = $_GET['page'];
 
@@ -54,8 +52,6 @@
 	*	Fonction de recherche avancée
 	*/
 	function find_my_school_advance() {
-		@session_start();
-
 		$type = "non";		// Initialisation par défaut
 
 		if (isset($_COOKIE['findmyschoolacademie']))	// Si le cookie est défini, on set $type sur "cookie"
@@ -71,7 +67,6 @@
 							$tab[$i][$key] = $row[$i];
 
 		array_multisort($tab[17], SORT_ASC, $_SESSION['parsed']);
-
 
 		// On différencie ici le tri selon cookie et selon post
 

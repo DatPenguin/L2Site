@@ -1,6 +1,5 @@
 <?php
 	include_once("includes/header.inc.php");
-	
 	create_header("Graphes");
 	@session_start();
 ?>

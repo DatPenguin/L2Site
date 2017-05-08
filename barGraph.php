@@ -1,13 +1,9 @@
 <?php
-	
 	require_once("includes/parser.inc.php");
 	require_once("includes/util.inc.php");
 	require_once("includes/findmyschool.inc.php");
-//	include_once("includes/header.inc.php");
 	require_once ('jpgraph-4.0.2/src/jpgraph.php');
 	require_once ('jpgraph-4.0.2/src/jpgraph_bar.php');
-
-	
 	@session_start();
 
 	$stringTab = array();
@@ -19,7 +15,6 @@
 		$dataTab[$index] = countElementsFromData($stringTab[$index], 17);				
 	}
 			
-
 	$datay=$dataTab;
  
 	// Size of graph
@@ -49,9 +44,6 @@
 	// Label align for Y-axis
 	$graph->yaxis->SetLabelAlign('center','bottom');
 	 
-	// Titles
-	//$graph->title->Set('Number of incidents');
-	 
 	// Create a bar pot
 	$bplot = new BarPlot($datay);
 	$bplot->SetFillColor('orange');
@@ -61,5 +53,4 @@
 	$graph->Add($bplot);
 	 
 	$graph->Stroke();
-
 ?>
