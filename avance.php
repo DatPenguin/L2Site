@@ -21,7 +21,7 @@
 						<label for="nom">Nom</label>
 					</td>
 					<td>
-						<input type="text" name="nom" />
+						<input type="text" name="nom" id="nom" />
 					</td>
 				</tr>
 				<tr>

@@ -10,7 +10,7 @@
 		$out .= "<tr>";
 		for ($i = 0; $i < 26; $i++) {
 			if ($i == 0 || $i == 2 || $i == 3 || $i == 5 || $i == 9 || $i == 11 || $i == 14 || $i == 16 || $i == 17 || $i == 18)
-				$out .= "<td class=\"fixed_row\" colspan=\"2\">" . $parsed[$i] . "</td>";
+				$out .= "<td class=\"fixed_row\">" . $parsed[$i] . "</td>";
 		}
 		$out .= "</tr>";
 
@@ -25,7 +25,7 @@
 			$out = "<table style=\"width:100%;\"><tr class=\"fixed_row\">\n";
 			for ($i = 0; $i < 26; $i++)
 				if ($i == 0 || $i == 2 || $i == 3 || $i == 5 || $i == 9 || $i == 11 || $i == 14 || $i == 16 || $i == 17 || $i == 18)			// On n'affiche que les colonnes qui nous intéressent
-					$out .= "\n\t\t<th colspan=\"2\" rowspan=\"2\">" . ucfirst(str_replace("code", "", str_replace("\"", "", $_SESSION['parsed_headers'][$i]))) . "</th>";
+					$out .= "\n\t\t<th>" . ucfirst(str_replace("code", "", str_replace("\"", "", $_SESSION['parsed_headers'][$i]))) . "</th>";
 			$out .= "</tr></table>";
 			echo $out;
 	}
@@ -121,7 +121,7 @@
 		}
 	
 		sort($tabSecondaire);
-		print("\t <select name=\"" . $name . "\">");
+		print("\t <select name=\"" . $name . "\" id=\"" . $name . "\">");
 		print("\t\t <option value=\"tout\">[Tout afficher]</option>");
 
 		for($i = 1; $i < count($tabSecondaire); $i++)
